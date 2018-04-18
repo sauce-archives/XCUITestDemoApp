@@ -10,8 +10,6 @@ import UIKit
 
 class ListItem : Equatable, Codable {
     
-    
-    
     let title: String
     var done: Bool = false
     

@@ -43,7 +43,7 @@ class ListViewController: UIViewController {
         alert.addTextField { (textField) in
             textField.placeholder = "Title"
         }
-        alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (action) in
+        alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { [unowned self] (action) in
             guard let titleTextField = alert.textFields?[0] else {
                 return
             }
@@ -51,16 +51,21 @@ class ListViewController: UIViewController {
             guard let title = titleTextField.text, title.count > 0 else {
                 return
             }
-            
-            let row = self.items.count
-            let item = ListItem(title: title)
-            self.items.append(item)
-            store(items: self.items)
-            
-            self.tableView.insertRows(at: [IndexPath(row: row, section: 0)], with: .bottom)
+            self.addItem(title: title)
         }))
         
+        alert.view.tintColor = UIColor.sauceRed
+        
         present(alert, animated: true, completion: nil)
+    }
+    
+    private func addItem(title: String) {
+        let row = self.items.count
+        let item = ListItem(title: title)
+        self.items.append(item)
+        store(items: self.items)
+        
+        self.tableView.insertRows(at: [IndexPath(row: row, section: 0)], with: .bottom)
     }
     
     @IBAction func editPressed(_ sender: UIBarButtonItem) {

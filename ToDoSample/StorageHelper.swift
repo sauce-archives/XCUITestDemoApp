@@ -42,6 +42,7 @@ func update(item: ListItem) {
     }
     items[idx] = item
     store(items: items)
+    
 }
 
 private func fileURL() -> URL {

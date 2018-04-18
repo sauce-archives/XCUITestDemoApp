@@ -38,6 +38,7 @@ class DetailViewController: UIViewController {
         }
         item.done = done
         update(item: item)
+        updateView(item: item)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,10 +51,18 @@ class DetailViewController: UIViewController {
     }
     
     func updateView(item: ListItem, dispatchTime: DispatchTime? = nil) {
-        let dispayText = "Title: \(item.title)"
+        let dispayText = "Todo: \(item.title)"
+        
+        var attributes: [NSAttributedStringKey: Any] = [
+            .font: itemTitle.font
+        ]
+        if item.done {
+            attributes[.strikethroughStyle] = 1
+        }
+        let attributedTitle = NSAttributedString(string: dispayText, attributes: attributes)
         
         guard let time = dispatchTime else {
-            itemTitle.text = dispayText
+            itemTitle.attributedText = attributedTitle
             return
         }
         
@@ -71,7 +80,7 @@ class DetailViewController: UIViewController {
             }
             
             self?.buttonContainer.isHidden = false
-            self?.itemTitle.text = dispayText
+            self?.itemTitle.attributedText = attributedTitle
         }
     }
 
