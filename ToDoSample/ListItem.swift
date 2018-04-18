@@ -10,13 +10,10 @@ import UIKit
 
 class ListItem : Equatable, Codable {
     
-    enum Color: Int, Codable {
-        case green
-        case red
-    }
+    
     
     let title: String
-    var color: Color?
+    var done: Bool = false
     
     init(title: String) {
         self.title = title

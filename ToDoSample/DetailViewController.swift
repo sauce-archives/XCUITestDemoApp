@@ -24,19 +24,19 @@ class DetailViewController: UIViewController {
         setTitleView(image: #imageLiteral(resourceName: "sauce_logo_large"))
         
         greenButton.handler = { [weak self] () -> Void in
-            self?.updateItem(color: .green)
+            self?.updateItem(done: true)
         }
         
         redButton.handler = { [weak self] () -> Void in
-            self?.updateItem(color: .red)
+            self?.updateItem(done: false)
         }
     }
     
-    func updateItem(color: ListItem.Color) {
+    func updateItem(done: Bool) {
         guard let item = self.item else {
             return
         }
-        item.color = color
+        item.done = done
         update(item: item)
     }
     

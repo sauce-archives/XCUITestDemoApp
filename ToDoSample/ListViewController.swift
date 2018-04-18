@@ -54,7 +54,6 @@ class ListViewController: UIViewController {
             
             let row = self.items.count
             let item = ListItem(title: title)
-            item.color = .red
             self.items.append(item)
             store(items: self.items)
             
@@ -83,25 +82,18 @@ extension ListViewController: UITableViewDataSource {
         cell.showsReorderControl = true
         cell.doneImageView.image = nil
         
-        if let color = item.color {
-            switch color {
-            case .green:
-                let attributes: [NSAttributedStringKey: Any] = [
-                    .font: cell.titleLabel.font,
-                    .strikethroughStyle: 1
-                ]
-                let title = NSAttributedString(string: item.title, attributes: attributes)
-                cell.titleLabel.attributedText = title
-                cell.titleLabel.accessibilityTraits |= UIAccessibilityTraitSelected
-                cell.doneImageView.image = #imageLiteral(resourceName: "saucebot_lederhosen")
-                
-            case .red:
-                cell.titleLabel.text = item.title
-                if cell.titleLabel.accessibilityTraits & UIAccessibilityTraitSelected > 0 {
-                    cell.titleLabel.accessibilityTraits ^= UIAccessibilityTraitSelected
-                }
-            }
+        if item.done {
+            let attributes: [NSAttributedStringKey: Any] = [
+                .font: cell.titleLabel.font,
+                .strikethroughStyle: 1
+            ]
+            let title = NSAttributedString(string: item.title, attributes: attributes)
+            cell.titleLabel.attributedText = title
+            cell.titleLabel.accessibilityTraits |= UIAccessibilityTraitSelected
+            cell.doneImageView.image = #imageLiteral(resourceName: "saucebot_lederhosen")
+            
         } else {
+            cell.titleLabel.text = item.title
             if cell.titleLabel.accessibilityTraits & UIAccessibilityTraitSelected > 0 {
                 cell.titleLabel.accessibilityTraits ^= UIAccessibilityTraitSelected
             }
