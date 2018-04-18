@@ -11,5 +11,6 @@ import UIKit
 class ListItemTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var doneImageView: UIImageView!
     
 }

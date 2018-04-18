@@ -21,6 +21,8 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setTitleView(image: #imageLiteral(resourceName: "sauce_logo_large"))
+        
         greenButton.handler = { [weak self] () -> Void in
             self?.updateItem(color: .green)
         }
@@ -42,8 +44,8 @@ class DetailViewController: UIViewController {
         super.viewWillAppear(animated)
         
         if let item = self.item {
-            self.updateView(item: item, dispatchTime: .now() + 5.0)
-//            self.updateView(item: item)
+//            self.updateView(item: item, dispatchTime: .now() + 5.0)
+            self.updateView(item: item)
         }
     }
     

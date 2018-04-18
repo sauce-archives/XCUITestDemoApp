@@ -14,6 +14,9 @@
 		6386303B20868DBF0028E574 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6386303A20868DBF0028E574 /* ListViewController.swift */; };
 		6386303D208692040028E574 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6386303C208692040028E574 /* ListItem.swift */; };
 		6386303F208693690028E574 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6386303E208693690028E574 /* DetailViewController.swift */; };
+		63BD074D2087A051007AC5DB /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BD074C2087A051007AC5DB /* BaseTestCase.swift */; };
+		63BD074F2087A4EC007AC5DB /* UIColor+Sauce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BD074E2087A4EC007AC5DB /* UIColor+Sauce.swift */; };
+		63BD07512087A55E007AC5DB /* UIViewController+NavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BD07502087A55E007AC5DB /* UIViewController+NavigationItem.swift */; };
 		63D902B020874672004C879D /* AddItemsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D902AF20874672004C879D /* AddItemsTests.swift */; };
 		63D902B220874854004C879D /* StorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D902B120874854004C879D /* StorageHelper.swift */; };
 		63D902B420874AAC004C879D /* CustomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D902B320874AAC004C879D /* CustomButtonView.swift */; };
@@ -43,6 +46,9 @@
 		6386303A20868DBF0028E574 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		6386303C208692040028E574 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		6386303E208693690028E574 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		63BD074C2087A051007AC5DB /* BaseTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTestCase.swift; sourceTree = "<group>"; };
+		63BD074E2087A4EC007AC5DB /* UIColor+Sauce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Sauce.swift"; sourceTree = "<group>"; };
+		63BD07502087A55E007AC5DB /* UIViewController+NavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationItem.swift"; sourceTree = "<group>"; };
 		63D902AF20874672004C879D /* AddItemsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemsTests.swift; sourceTree = "<group>"; };
 		63D902B120874854004C879D /* StorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHelper.swift; sourceTree = "<group>"; };
 		63D902B320874AAC004C879D /* CustomButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonView.swift; sourceTree = "<group>"; };
@@ -100,6 +106,8 @@
 				63D902B120874854004C879D /* StorageHelper.swift */,
 				63D902B320874AAC004C879D /* CustomButtonView.swift */,
 				63D902B520874E54004C879D /* ListItemTableViewCell.swift */,
+				63BD074E2087A4EC007AC5DB /* UIColor+Sauce.swift */,
+				63BD07502087A55E007AC5DB /* UIViewController+NavigationItem.swift */,
 			);
 			path = ToDoSample;
 			sourceTree = "<group>";
@@ -110,6 +118,7 @@
 				6386303120868ACF0028E574 /* Info.plist */,
 				63D902AF20874672004C879D /* AddItemsTests.swift */,
 				63D902B920875B9A004C879D /* Actions.swift */,
+				63BD074C2087A051007AC5DB /* BaseTestCase.swift */,
 			);
 			path = ToDoSampleUITests;
 			sourceTree = "<group>";
@@ -218,11 +227,13 @@
 			files = (
 				6386303D208692040028E574 /* ListItem.swift in Sources */,
 				6386303F208693690028E574 /* DetailViewController.swift in Sources */,
+				63BD07512087A55E007AC5DB /* UIViewController+NavigationItem.swift in Sources */,
 				63D902B620874E54004C879D /* ListItemTableViewCell.swift in Sources */,
 				6386301B20868ACE0028E574 /* AppDelegate.swift in Sources */,
 				63D902B420874AAC004C879D /* CustomButtonView.swift in Sources */,
 				6386303B20868DBF0028E574 /* ListViewController.swift in Sources */,
 				63D902B220874854004C879D /* StorageHelper.swift in Sources */,
+				63BD074F2087A4EC007AC5DB /* UIColor+Sauce.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63D902B020874672004C879D /* AddItemsTests.swift in Sources */,
+				63BD074D2087A051007AC5DB /* BaseTestCase.swift in Sources */,
 				63D902BA20875B9A004C879D /* Actions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

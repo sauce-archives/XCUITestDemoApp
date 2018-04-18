@@ -1,5 +1,5 @@
 //
-//  AddItemsTests.swift
+//  BaseTestCase.swift
 //  ToDoSampleUITests
 //
 //  Created by David on 18.04.18.
@@ -8,16 +8,20 @@
 
 import XCTest
 
-class AddItemsTests: XCTestCase {
+class BaseTestCase: XCTestCase {
     
     let app = XCUIApplication()
         
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
-        let app = XCUIApplication()
+        
         app.launchArguments = ["clear"]
+        
         app.launch()
     }
     
+    override func tearDown() {
+        super.tearDown()
+    }
 }

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -37,14 +38,24 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kKQ-Fm-i2b">
+                                                    <rect key="frame" x="303.5" y="7" width="55.5" height="55.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="kKQ-Fm-i2b" secondAttribute="height" id="qBb-bE-prX"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="EW5-5v-Z58" firstAttribute="centerY" secondItem="zZh-4T-gZB" secondAttribute="centerY" id="Bgc-LZ-lQ6"/>
+                                                <constraint firstItem="kKQ-Fm-i2b" firstAttribute="height" secondItem="zZh-4T-gZB" secondAttribute="height" multiplier="0.8" id="IOF-Lj-KJ2"/>
+                                                <constraint firstAttribute="trailing" secondItem="kKQ-Fm-i2b" secondAttribute="trailing" constant="16" id="M8h-wJ-kW2"/>
                                                 <constraint firstItem="EW5-5v-Z58" firstAttribute="top" secondItem="zZh-4T-gZB" secondAttribute="topMargin" constant="13" id="P6h-4N-Y7w"/>
+                                                <constraint firstItem="kKQ-Fm-i2b" firstAttribute="centerY" secondItem="zZh-4T-gZB" secondAttribute="centerY" id="bdz-q6-4X4"/>
                                                 <constraint firstItem="EW5-5v-Z58" firstAttribute="leading" secondItem="zZh-4T-gZB" secondAttribute="leadingMargin" constant="-1" id="fAB-vo-pQf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="doneImageView" destination="kKQ-Fm-i2b" id="Hyu-rJ-9TR"/>
                                             <outlet property="titleLabel" destination="EW5-5v-Z58" id="aOl-Pp-YUG"/>
                                         </connections>
                                     </tableViewCell>
@@ -94,11 +105,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hv0-z5-1Zh">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="533" width="375" height="70"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gpI-JH-ayg" customClass="CustomButtonView" customModule="ToDoSample" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="187.5" height="70"/>
-                                        <color key="backgroundColor" red="0.30840110780000002" green="0.5618229508" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.21568627450980393" green="0.3411764705882353" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <accessibility key="accessibilityConfiguration" identifier="greenButton">
                                             <accessibilityTraits key="traits" button="YES"/>
                                             <bool key="isElement" value="YES"/>
@@ -106,7 +117,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iYB-UC-pt9" customClass="CustomButtonView" customModule="ToDoSample" customModuleProvider="target">
                                         <rect key="frame" x="187.5" y="0.0" width="187.5" height="70"/>
-                                        <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.87450980392156863" green="0.14901960784313725" blue="0.14509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <accessibility key="accessibilityConfiguration" identifier="redButton">
                                             <accessibilityTraits key="traits" button="YES"/>
                                             <bool key="isElement" value="YES"/>
@@ -134,6 +145,7 @@
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="0WC-PD-azZ">
                                 <rect key="frame" x="178" y="291.5" width="20" height="20"/>
+                                <color key="color" red="0.87450980389999999" green="0.14901960780000001" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -141,9 +153,9 @@
                             <constraint firstItem="0WC-PD-azZ" firstAttribute="centerX" secondItem="pWQ-Tn-J2p" secondAttribute="centerX" id="0mg-nQ-eaZ"/>
                             <constraint firstItem="rQo-rb-BG8" firstAttribute="centerY" secondItem="pWQ-Tn-J2p" secondAttribute="centerY" id="6u4-Zg-UoT"/>
                             <constraint firstItem="rQo-rb-BG8" firstAttribute="centerX" secondItem="pWQ-Tn-J2p" secondAttribute="centerX" id="EXY-AL-9Tz"/>
+                            <constraint firstItem="pWQ-Tn-J2p" firstAttribute="bottom" secondItem="hv0-z5-1Zh" secondAttribute="bottom" id="GKv-bP-uSm"/>
                             <constraint firstItem="pWQ-Tn-J2p" firstAttribute="trailing" secondItem="hv0-z5-1Zh" secondAttribute="trailing" id="Nwp-uR-DCW"/>
                             <constraint firstItem="hv0-z5-1Zh" firstAttribute="leading" secondItem="pWQ-Tn-J2p" secondAttribute="leading" id="af7-LI-O7e"/>
-                            <constraint firstItem="hv0-z5-1Zh" firstAttribute="top" secondItem="pWQ-Tn-J2p" secondAttribute="top" id="iTk-gn-Wj8"/>
                             <constraint firstItem="0WC-PD-azZ" firstAttribute="centerY" secondItem="pWQ-Tn-J2p" secondAttribute="centerY" id="xnd-i3-aVQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pWQ-Tn-J2p"/>

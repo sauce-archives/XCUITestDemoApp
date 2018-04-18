@@ -16,6 +16,9 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setTitleView(image: #imageLiteral(resourceName: "sauce_logo_large"))
+        
+        navigationController?.navigationBar.tintColor = UIColor.sauceRed
         items = loadItems()
     }
     
@@ -50,7 +53,9 @@ class ListViewController: UIViewController {
             }
             
             let row = self.items.count
-            self.items.append(ListItem(title: title))
+            let item = ListItem(title: title)
+            item.color = .red
+            self.items.append(item)
             store(items: self.items)
             
             self.tableView.insertRows(at: [IndexPath(row: row, section: 0)], with: .bottom)
@@ -59,12 +64,9 @@ class ListViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func editPressed(_ sender: Any) {
+    @IBAction func editPressed(_ sender: UIBarButtonItem) {
         tableView.setEditing(!tableView.isEditing, animated: true)
-    }
-    
-    func createItem(title: String) {
-        
+        sender.title = sender.title == "Edit" ? "Done" : "Edit"
     }
 }
 
@@ -77,8 +79,9 @@ extension ListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemRow", for: indexPath) as! ListItemTableViewCell
         
         let item = items[indexPath.row]
-        cell.titleLabel.text = item.title
+        cell.titleLabel.attributedText = nil
         cell.showsReorderControl = true
+        cell.doneImageView.image = nil
         
         if let color = item.color {
             switch color {
@@ -90,7 +93,10 @@ extension ListViewController: UITableViewDataSource {
                 let title = NSAttributedString(string: item.title, attributes: attributes)
                 cell.titleLabel.attributedText = title
                 cell.titleLabel.accessibilityTraits |= UIAccessibilityTraitSelected
+                cell.doneImageView.image = #imageLiteral(resourceName: "saucebot_lederhosen")
+                
             case .red:
+                cell.titleLabel.text = item.title
                 if cell.titleLabel.accessibilityTraits & UIAccessibilityTraitSelected > 0 {
                     cell.titleLabel.accessibilityTraits ^= UIAccessibilityTraitSelected
                 }
