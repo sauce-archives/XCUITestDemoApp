@@ -20,16 +20,4 @@ class AddItemsTests: XCTestCase {
         app.launch()
     }
     
-    func testPopulate() {
-        app.launchArguments = ["populate"]
-        app.terminate()
-        app.launch()
-    }
-    
-    func testAdd() {
-        addListItem(title: "Foo")
-        
-        app.staticTexts.matching(NSPredicate(format: "label beginswith 'F'")).firstMatch.wai
-    }
-    
 }

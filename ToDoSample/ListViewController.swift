@@ -39,11 +39,11 @@ class ListViewController: UIViewController {
     }
     
     @IBAction func addPressed(_ sender: Any) {
-        let alert = UIAlertController(title: "Create Item", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: NSLocalizedString("Create Item", comment: ""), message: nil, preferredStyle: .alert)
         alert.addTextField { (textField) in
-            textField.placeholder = "Title"
+            textField.placeholder = NSLocalizedString("Title", comment: "")
         }
-        alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { [unowned self] (action) in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Add", comment: ""), style: .default, handler: { [unowned self] (action) in
             guard let titleTextField = alert.textFields?[0] else {
                 return
             }
@@ -70,7 +70,11 @@ class ListViewController: UIViewController {
     
     @IBAction func editPressed(_ sender: UIBarButtonItem) {
         tableView.setEditing(!tableView.isEditing, animated: true)
-        sender.title = sender.title == "Edit" ? "Done" : "Edit"
+        
+        let editString = NSLocalizedString("Edit", comment: "")
+        let doneString = NSLocalizedString("Done", comment: "")
+        
+        sender.title = sender.title == editString ? doneString : editString
     }
 }
 
@@ -134,13 +138,13 @@ extension ListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+        let deleteAction = UITableViewRowAction(style: .destructive, title: NSLocalizedString("Delete", comment: "")) { (action, indexPath) in
             self.items.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
             store(items: self.items)
         }
         
-        let moveToTop = UITableViewRowAction(style: .normal, title: "Move to top") { (action, indexPath) in
+        let moveToTop = UITableViewRowAction(style: .normal, title: NSLocalizedString("Move to top", comment: "")) { (action, indexPath) in
             let item = self.items.remove(at: indexPath.row)
             self.items.insert(item, at: 0)
             

@@ -75,7 +75,7 @@ class DetailViewController: UIViewController {
             self?.activityIndicator.stopAnimating()
             
             guard !dispayText.contains("INVALID") else {
-                self?.itemTitle.text = "Error"
+                self?.itemTitle.text = NSLocalizedString("Error", comment: "")
                 return
             }
             
