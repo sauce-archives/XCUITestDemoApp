@@ -94,17 +94,26 @@ extension ListViewController: UITableViewDataSource {
             ]
             let title = NSAttributedString(string: item.title, attributes: attributes)
             cell.titleLabel.attributedText = title
-            cell.titleLabel.accessibilityTraits |= UIAccessibilityTraitSelected
+            setAccessibilityTrait(selected: true, forView: cell.titleLabel)
             cell.doneImageView.image = #imageLiteral(resourceName: "saucebot_lederhosen")
             
         } else {
             cell.titleLabel.text = item.title
-            if cell.titleLabel.accessibilityTraits & UIAccessibilityTraitSelected > 0 {
-                cell.titleLabel.accessibilityTraits ^= UIAccessibilityTraitSelected
-            }
+            setAccessibilityTrait(selected: false, forView: cell.titleLabel)
         }
         
         return cell
+    }
+    
+    private func setAccessibilityTrait(selected: Bool, forView view: UIView) {
+        var traits: UIAccessibilityTraits
+        if selected {
+            traits = view.accessibilityTraits | UIAccessibilityTraitSelected
+        } else {
+            traits = view.accessibilityTraits & (~UIAccessibilityTraitSelected)
+        }
+        
+        view.accessibilityTraits = traits
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
